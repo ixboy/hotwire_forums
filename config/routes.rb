@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :discussions, only: %i[index new create destroy]
+  resources :discussions
   root 'main#index'
 end
