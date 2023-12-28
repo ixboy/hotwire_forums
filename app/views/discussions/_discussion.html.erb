@@ -1,10 +1,10 @@
 <div id="<%= dom_id(discussion) %>">
-  <h2><%= discussion.name%></h2>
+  <h2><%= link_to discussion.name, discussion%></h2>
   Pinned: <%= discussion.pinned%>   |   Clossed: <%= discussion.closed%>
   <div>
-    <%= link_to "Edit", edit_discussion_path(discussion), class: "" %>
+    <%= link_to "Edit", edit_discussion_path(discussion), class: "" %> |
   </div>
   <div>
-    <%= link_to "Delete", destroy_discussion_path(discussion), class: "" %>
+    <%= link_to "Delete", discussion, method: :delete, data: {confirm: "are you sure you want to delete thsi?"} %>
   </div>
 </div>
