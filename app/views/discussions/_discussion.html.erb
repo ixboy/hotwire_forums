@@ -5,6 +5,6 @@
     <%= link_to "Edit", edit_discussion_path(discussion), class: "" %> |
   </div>
   <div>
-    <%= link_to "Delete", discussion, method: :delete, data: {confirm: "are you sure you want to delete thsi?"} %>
+    <%= button_to "Delete", discussion, method: :delete, form: { data: { turbo_confirm: "Are you sure? This cannot be undone" } }, class: ""%>
   </div>
 </div>
