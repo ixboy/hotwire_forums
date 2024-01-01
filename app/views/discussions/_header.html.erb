@@ -13,7 +13,11 @@
     </div>
     <div>
       <%= link_to "Edit", edit_discussion_path(discussion) %> |
-      <%= link_to "Destroy", discussion, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= button_to "Destroy",
+                    discussion,
+                    method: :delete,
+                    form: { data: { turbo_confirm: "Are you sure? This cannot be undone" } },
+                    class: "btn btn--light" %>
     </div>
   </div>
 <% end %>
