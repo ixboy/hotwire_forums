@@ -39,7 +39,10 @@ class DiscussionsController < ApplicationController
 
   def destroy
     @discussion.destroy!
-    redirect_to discussions_path, notice: 'Discussion removed'
+    # byebug
+    respond_to do |format|
+      format.html { redirect_to discussions_path, notice: 'Discussion removed' }
+    end
   end
 
   private

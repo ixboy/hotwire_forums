@@ -3,8 +3,6 @@
   Pinned: <%= discussion.pinned%>   |   Clossed: <%= discussion.closed%>
   <div>
     <%= link_to "Edit", edit_discussion_path(discussion), class: "" %> |
-  </div>
-  <div>
-    <%= button_to "Delete", discussion, method: :delete, form: { data: { turbo_confirm: "Are you sure? This cannot be undone" } }, class: ""%>
+    <%= link_to "Delete", discussion, data: {turbo_method: :delete, turbo_confirm: "Are you sure? This cannot be undone"} %>
   </div>
 </div>

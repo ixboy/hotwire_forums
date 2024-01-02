@@ -11,5 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@rails/actiontext": "^7.1.2",
+    "trix": "^2.0.8"
+  }
 }
