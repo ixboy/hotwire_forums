@@ -1,6 +1,7 @@
 class DiscussionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_discussion, only: %i[show edit update destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
     @discussions = Discussion.all.order(updated_at: :desc)
@@ -43,7 +44,6 @@ class DiscussionsController < ApplicationController
 
   def destroy
     @discussion.destroy!
-    # byebug
     respond_to do |format|
       format.html { redirect_to discussions_path, notice: 'Discussion removed' }
     end
@@ -57,5 +57,10 @@ class DiscussionsController < ApplicationController
 
   def set_discussion
     @discussion = Discussion.find(params[:id])
+  end
+
+  def not_found
+    flash[:notice] = 'The discussion you tried to access does not exist. It may have been deleted'
+    redirect_to discussions_path
   end
 end
