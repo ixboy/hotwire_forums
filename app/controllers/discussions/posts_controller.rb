@@ -30,6 +30,13 @@ module Discussions
       end
     end
 
+    def destroy
+      @post.delete
+      respond_to do |format|
+        format.html { redirect_to @post.discussion, notice: 'Post was successfully deleted ' }
+      end
+    end
+
     private
 
     def set_discussion
