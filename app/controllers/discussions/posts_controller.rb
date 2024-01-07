@@ -33,6 +33,7 @@ module Discussions
     def destroy
       @post.delete
       respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
         format.html { redirect_to @post.discussion, notice: 'Post was successfully deleted ' }
       end
     end
