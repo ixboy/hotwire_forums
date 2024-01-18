@@ -1,6 +1,7 @@
 <div id="<%= dom_id(discussion) %>">
   <h2><%= link_to discussion.name, discussion%></h2>
-  Pinned: <%= discussion.pinned%>   |   Clossed: <%= discussion.closed%>
+  Pinned: <%= discussion.pinned%>   |   Clossed: <%= discussion.closed%> <br>
+  Posted in: <%= discussion.category_name%>   |   Posts: <%= discussion.posts_count%>
   <div>
     <%= link_to "Edit", edit_discussion_path(discussion), class: "" %> |
     <%= link_to "Delete", discussion, data: {turbo_method: :delete, turbo_confirm: "Are you sure? This cannot be undone"} %>
