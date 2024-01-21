@@ -8,6 +8,8 @@ class Discussion < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :discussions_order, -> { order(pinned: :desc, updated_at: :desc) }
+
   broadcasts_to :category, inserts_by: :prepend
 
   after_create_commit -> { broadcast_prepend_to 'discussions' }

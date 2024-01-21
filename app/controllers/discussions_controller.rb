@@ -4,7 +4,7 @@ class DiscussionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @discussions = Discussion.all.order(updated_at: :desc)
+    @discussions = Discussion.all.discussions_order
   end
 
   def show
