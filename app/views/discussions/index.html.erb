@@ -21,6 +21,9 @@
     <% end %>
     <div id="discussions">
       <%= render partial: "discussions/discussion", collection: @discussions %>
+      <hr class="mb-4">
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 </div>
+

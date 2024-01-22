@@ -4,7 +4,7 @@ class DiscussionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @discussions = Discussion.includes(:category).discussions_order
+    @pagy, @discussions = pagy(Discussion.includes(:category).discussions_order)
   end
 
   def show
