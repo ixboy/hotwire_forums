@@ -4,11 +4,11 @@ class DiscussionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @discussions = Discussion.all.discussions_order
+    @discussions = Discussion.discussions_order
   end
 
   def show
-    @posts = @discussion.posts.all.order(created_at: :asc)
+    @posts = @discussion.posts.includes(:user, :rich_text_body).order(created_at: :asc)
     @new_post = @discussion.posts.new
   end
 
