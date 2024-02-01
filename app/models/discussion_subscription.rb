@@ -10,7 +10,7 @@ class DiscussionSubscription < ApplicationRecord
 
   def toggle!
     case subscription_type
-    when 'otptin'
+    when 'optin'
       update(subscription_type: 'optout')
     when 'optout'
       update(subscription_type: 'optin')
